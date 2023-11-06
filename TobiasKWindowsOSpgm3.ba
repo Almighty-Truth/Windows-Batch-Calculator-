@@ -1,0 +1,31 @@
+@echo off 
+rem **********************************************************************************************
+rem Author: Khalil Tobias 
+rem Course: CGS 3767 
+rem Professor: Michael Robinson
+rem Program # 3: Practice using Windows batch
+rem Due Date: 10/31/2023
+rem Certification: I hereby certify this work is my own and none of it is the work of any other person 
+rem ******************************************************************************************************
+echo Khalil Tobias > results.txt
+echo %date% >> results.txt
+echo %time% >> results.txt 
+ 
+:LoopOne 
+set /P FirstNumber= Enter the first number: 
+if %FirstNumber% == 22 goto finishProgram
+
+:LoopTwo
+set /P SecondNumber= Enter the second number:
+if %SecondNumber% == 44 goto finishProgram
+
+if %SecondNumber% == 0 (
+echo "You can NOT divide by zero. Enter the new number." 
+goto LoopTwo
+)
+
+set /A divResults= %FirstNumber%/%SecondNumber%
+echo %FirstNumber% divided by %SecondNumber%= %divResults%
+echo %FirstNumber% divided by %SecondNumber% = %divResults% >> results.txt
+goto LoopOne
+:finishProgram
